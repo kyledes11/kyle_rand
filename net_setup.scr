@@ -1,0 +1,40 @@
+#!/bin/bash
+# Internet setup script
+# Must run in sudo
+echo
+echo
+echo
+echo "-------------------------------------------"
+echo "----- Internet access automated script-----"
+echo "-------------------------------------------"
+echo
+echo "Must run script on every power up, as sudo"
+echo 
+echo "Setting up ethernet address, 192.168.7.1"
+echo
+echo
+sudo /sbin/route add default gw 192.168.7.1
+echo "Address added"
+echo
+echo "IP Address table, verify default is correct IP address"
+route
+echo
+echo
+echo "Configuring nameservers, allows access to websites"
+echo "..."
+echo "domain localdomain" >> /etc/resolv.conf
+echo "search localdomain" >> /etc/resolv.conf
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+echo "..."
+echo "Configuration complete"
+echo 
+echo "NOTE: ONLY RUN ONCE"
+echo
+echo
+echo "----------------------------"
+echo "----- Process complete -----"
+echo "----------------------------"
+echo
+echo
+echo
